@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+.app-root {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #020617;
+  border-right: 1px solid #1f2937;
+  transition: width 0.2s ease, transform 0.2s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar--open {
+  width: 260px;
+}
+
+.sidebar--closed {
+  width: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.75rem;
+  border-bottom: 1px solid #1f2937;
+}
+
+.sidebar-toggle {
+  background: #111827;
+  border: 1px solid #374151;
+  color: #e5e7eb;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0.5rem;
+  margin: 0;
+  overflow-y: auto;
+}
+
+.sidebar-item {
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.sidebar-item:hover {
+  background: #111827;
+}
+
+.sidebar-item--active {
+  background: #1d4ed8;
+}
+
+.sidebar-item-title {
+  font-weight: 600;
+}
+
+.sidebar-item-desc {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* Main area */
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.app-content {
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* Example card */
+
+.example-card {
+  background: #020617;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #1f2937;
+  max-width: 600px;
+}
+
+.example-subtitle {
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  color: #9ca3af;
+}
+
+/* Todo styles */
+
+.todo-input-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #374151;
+  background: #030712;
+  color: #e5e7eb;
+}
+
+.primary-btn,
+.danger-btn {
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.primary-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.danger-btn {
+  background: #b91c1c;
+  color: white;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 0;
+}
+
+.todo-text {
+  margin-left: 0.5rem;
+}
+
+.todo-text.done {
+  text-decoration: line-through;
+  color: #6b7280;
+}
