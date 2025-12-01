@@ -1,7 +1,7 @@
 export const checkboxesData = [
   {
     id: 1,
-    name: "Electronics",
+    name: "Electronicss",
     checked: false,
     children: [
       {

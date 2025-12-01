@@ -2,9 +2,10 @@ import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import TodoExample from "./components/TodoExample";
 import Nestedcheckbox from "./components/Nestedcheckbox";
-import { checkboxesData } from "./utils/utilData";
+//import { checkboxesData } from "./utils/utilData";
 // later you can import more examples like:
 // import CounterExample from "./examples/CounterExample";
+import { checkboxesData } from "./utils/utilData";
 
 type ExampleId = "todo" | "nested-checkbox"; // extend this union as you add more
 
