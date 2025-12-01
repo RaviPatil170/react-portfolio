@@ -5,9 +5,10 @@ import Nestedcheckbox from "./components/Nestedcheckbox";
 //import { checkboxesData } from "./utils/utilData";
 // later you can import more examples like:
 // import CounterExample from "./examples/CounterExample";
-import { checkboxesData } from "./utils/utilData";
+import { checkboxesData, fileSystemData } from "./utils/utilData";
+import FileExplorer from "./components/FileExplorer";
 
-type ExampleId = "todo" | "nested-checkbox"; // extend this union as you add more
+type ExampleId = "todo" | "nested-checkbox" | "file-system"; // extend this union as you add more
 
 const EXAMPLES: { id: ExampleId; title: string; description: string }[] = [
   { id: "todo", title: "Todo List", description: "Basic CRUD todo app" },
@@ -15,6 +16,11 @@ const EXAMPLES: { id: ExampleId; title: string; description: string }[] = [
     id: "nested-checkbox",
     title: "Nested Checkbox",
     description: "A checkbox component with nested options",
+  },
+  {
+    id: "file-system",
+    title: "File System Explorer",
+    description: "A file system explorer component",
   },
   // add more later
 ];
@@ -31,6 +37,8 @@ export default function App() {
       //   return <CounterExample />;
       case "nested-checkbox":
         return <Nestedcheckbox initialData={checkboxesData}></Nestedcheckbox>;
+      case "file-system":
+        return <FileExplorer data={fileSystemData} />;
       default:
         return <div>Select an example from the left.</div>;
     }
