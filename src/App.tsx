@@ -1,13 +1,20 @@
 import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import TodoExample from "./components/TodoExample";
+import Nestedcheckbox from "./components/Nestedcheckbox";
+import { checkboxesData } from "./utils/utilData";
 // later you can import more examples like:
 // import CounterExample from "./examples/CounterExample";
 
-type ExampleId = "todo"; // extend this union as you add more
+type ExampleId = "todo" | "nested-checkbox"; // extend this union as you add more
 
 const EXAMPLES: { id: ExampleId; title: string; description: string }[] = [
   { id: "todo", title: "Todo List", description: "Basic CRUD todo app" },
+  {
+    id: "nested-checkbox",
+    title: "Nested Checkbox",
+    description: "A checkbox component with nested options",
+  },
   // add more later
 ];
 
@@ -21,6 +28,8 @@ export default function App() {
         return <TodoExample />;
       // case "counter":
       //   return <CounterExample />;
+      case "nested-checkbox":
+        return <Nestedcheckbox initialData={checkboxesData}></Nestedcheckbox>;
       default:
         return <div>Select an example from the left.</div>;
     }
