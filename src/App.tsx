@@ -7,6 +7,7 @@ import Nestedcheckbox from "./components/Nestedcheckbox";
 // import CounterExample from "./examples/CounterExample";
 import { checkboxesData, fileSystemData } from "./utils/utilData";
 import FileExplorer from "./components/FileExplorer";
+import NestedCheckboxExample from "./components/NestedCheckboxExample";
 
 type ExampleId = "todo" | "nested-checkbox" | "file-system"; // extend this union as you add more
 
@@ -36,7 +37,7 @@ export default function App() {
       // case "counter":
       //   return <CounterExample />;
       case "nested-checkbox":
-        return <Nestedcheckbox initialData={checkboxesData}></Nestedcheckbox>;
+        return <NestedCheckboxExample></NestedCheckboxExample>;
       case "file-system":
         return <FileExplorer data={fileSystemData} />;
       default:
