@@ -9,8 +9,9 @@ import { checkboxesData, fileSystemData } from "./utils/utilData";
 import FileExplorer from "./components/FileExplorer";
 import NestedCheckboxExample from "./components/NestedCheckboxExample";
 import FileExplorerExample from "./components/FileExplorerExample";
+import GridLights from "./components/GridLights";
 
-type ExampleId = "todo" | "nested-checkbox" | "file-system"; // extend this union as you add more
+type ExampleId = "todo" | "nested-checkbox" | "file-system" | "grid-light"; // extend this union as you add more
 
 const EXAMPLES: { id: ExampleId; title: string; description: string }[] = [
   { id: "todo", title: "Todo List", description: "Basic CRUD todo app" },
@@ -23,6 +24,11 @@ const EXAMPLES: { id: ExampleId; title: string; description: string }[] = [
     id: "file-system",
     title: "File System Explorer",
     description: "A file system explorer component",
+  },
+  {
+    id: "grid-light",
+    title: "Grid Light ",
+    description: "Grid light",
   },
   // add more later
 ];
@@ -41,6 +47,8 @@ export default function App() {
         return <NestedCheckboxExample></NestedCheckboxExample>;
       case "file-system":
         return <FileExplorerExample />;
+      case "grid-light":
+        return <GridLights></GridLights>;
       default:
         return <div>Select an example from the left.</div>;
     }

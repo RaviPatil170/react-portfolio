@@ -29,7 +29,7 @@ export default function FileExplorer({ data }: { data: FileNode[] }) {
   }
 
   return (
-    <div>
+    <div role="tree">
       {fileSystemData.map((node) => {
         const isFolder = !!node.children && node.children.length > 0;
 
@@ -39,12 +39,14 @@ export default function FileExplorer({ data }: { data: FileNode[] }) {
             className="file-explorer-node"
             style={{ marginLeft: 8 }} // tiny base indent, you can remove if you want
             onClick={(e) => handleClick(e, node.id)}
+            aria-labelledby={"file-node-" + node.id}
           >
             <div
               className={
                 "file-explorer-label " +
                 (isFolder ? "file-explorer-folder" : "file-explorer-file")
               }
+              role="treeitem"
             >
               {isFolder && (
                 <span className="file-explorer-toggle-icon">
@@ -55,7 +57,10 @@ export default function FileExplorer({ data }: { data: FileNode[] }) {
             </div>
 
             {isFolder && node.childShown && (
-              <div className="file-explorer-children">
+              <div
+                className="file-explorer-children"
+                aria-expanded={node.childShown}
+              >
                 <FileExplorer data={node.children!} />
               </div>
             )}
