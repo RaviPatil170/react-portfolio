@@ -10,6 +10,12 @@ const mockData: FileNode[] = [
     children: [
       { id: 2, name: "index.tsx", childShown: false },
       { id: 3, name: "App.tsx", childShown: false },
+      {
+        id: 5,
+        name: "components",
+        childShown: false,
+        children: [{ id: 4, name: "Navbar.tsx", childShown: false }],
+      },
     ],
   },
 ];
@@ -25,5 +31,17 @@ describe("FileExplorer Component", () => {
     const fileNode = screen.getByText("src");
     fireEvent.click(fileNode);
     expect(screen.getByText("index.tsx")).toBeInTheDocument();
+    expect(screen.getByText("App.tsx")).toBeInTheDocument();
+    fireEvent.click(fileNode);
+    expect(screen.queryByText("index.tsx")).not.toBeInTheDocument();
+  });
+
+  it("render nested children recurisievly", () => {
+    render(<FileExplorer data={mockData} />);
+    fireEvent.click(screen.getByText("src"));
+    //open components folder
+
+    fireEvent.click(screen.getByText("components"));
+    expect(screen.getByText("Navbar.tsx")).toBeInTheDocument();
   });
 });
