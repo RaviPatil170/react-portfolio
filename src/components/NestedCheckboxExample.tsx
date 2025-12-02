@@ -31,11 +31,7 @@ const initialData = [
   },
 ];
 
-export default function NestedCheckboxExample({
-  initialDataProp,
-}: {
-  initialDataProp?: typeof initialData;
-}) {
+export default function NestedCheckboxExample({}) {
   return (
     <div className="example-card">
       <header className="example-header">

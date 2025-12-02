@@ -310,3 +310,64 @@ body {
    - Text colors to #111827 / #374151
    - Borders to #e5e7eb
 */
+
+/* --- File explorer specific styles --- */
+
+.file-explorer {
+  background: #020617;
+  border-radius: 0.6rem;
+  border: 1px solid #1f2937;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+/* Basic node layout */
+
+.file-explorer-node {
+  padding: 0.15rem 0.25rem;
+  margin: 0.1rem 0;
+  cursor: pointer;
+}
+
+.file-explorer-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.4rem;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.file-explorer-label:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.file-explorer-name {
+  white-space: nowrap;
+}
+
+.file-explorer-toggle-icon {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* Folders vs files */
+
+.file-explorer-folder .file-explorer-name {
+  font-weight: 600;
+  color: #4ade80; /* greenish for folders */
+}
+
+.file-explorer-file .file-explorer-name {
+  color: #e5e7eb;
+}
+
+/* Indentation & tree lines */
+
+.file-explorer-children {
+  margin-left: 16px;
+  border-left: 1px solid rgba(55, 65, 81, 0.6);
+  padding-left: 8px;
+}

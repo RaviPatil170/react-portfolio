@@ -8,6 +8,7 @@ import Nestedcheckbox from "./components/Nestedcheckbox";
 import { checkboxesData, fileSystemData } from "./utils/utilData";
 import FileExplorer from "./components/FileExplorer";
 import NestedCheckboxExample from "./components/NestedCheckboxExample";
+import FileExplorerExample from "./components/FileExplorerExample";
 
 type ExampleId = "todo" | "nested-checkbox" | "file-system"; // extend this union as you add more
 
@@ -39,7 +40,7 @@ export default function App() {
       case "nested-checkbox":
         return <NestedCheckboxExample></NestedCheckboxExample>;
       case "file-system":
-        return <FileExplorer data={fileSystemData} />;
+        return <FileExplorerExample />;
       default:
         return <div>Select an example from the left.</div>;
     }

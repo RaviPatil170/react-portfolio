@@ -31,32 +31,32 @@ export default function FileExplorer({ data }: { data: FileNode[] }) {
   return (
     <div>
       {fileSystemData.map((node) => {
+        const isFolder = !!node.children && node.children.length > 0;
+
         return (
           <div
-            style={{ marginLeft: 20 }}
             key={node.id}
+            className="file-explorer-node"
+            style={{ marginLeft: 8 }} // tiny base indent, you can remove if you want
             onClick={(e) => handleClick(e, node.id)}
           >
             <div
-              style={
-                node.children
-                  ? { font: "bold", color: "green", cursor: "pointer" }
-                  : undefined
+              className={
+                "file-explorer-label " +
+                (isFolder ? "file-explorer-folder" : "file-explorer-file")
               }
             >
-              {node.name}
-              {node.children &&
-                (node.children.length > 0 && node.childShown ? (
-                  <span>[-]</span>
-                ) : (
-                  <span>[+]</span>
-                ))}
+              {isFolder && (
+                <span className="file-explorer-toggle-icon">
+                  {node.childShown ? "[-]" : "[+]"}
+                </span>
+              )}
+              <span className="file-explorer-name">{node.name}</span>
             </div>
-            {node.children && (
-              <div>
-                {node.childShown && (
-                  <FileExplorer data={node.children}></FileExplorer>
-                )}
+
+            {isFolder && node.childShown && (
+              <div className="file-explorer-children">
+                <FileExplorer data={node.children!} />
               </div>
             )}
           </div>
