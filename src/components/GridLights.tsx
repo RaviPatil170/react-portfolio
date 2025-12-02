@@ -21,7 +21,8 @@ export default function GridLights() {
     return () => clearInterval(timer);
   }, [boxes]);
 
-  function handleClick(e: React.MouseEvent<HTMLDivElement>, id: number) {
+  function handleClick(_e: React.MouseEvent<HTMLDivElement>, id: number) {
+    if (boxes.includes(id) || full) return;
     setBoxes((prevBoxes) => [...prevBoxes, id]);
     if (boxes.length >= 7) {
       setFull(true);
