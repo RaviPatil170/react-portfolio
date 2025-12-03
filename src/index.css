@@ -373,18 +373,137 @@ body {
 }
 .grid-container {
   display: grid;
+  max-width: 500px; /* stops huge stretching */
+  margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px;
 }
-.grid-container .seq1 {
-  width: 100px;
-  height: 100px;
+
+.seq1 {
+  aspect-ratio: 1;
   border: 1px solid #fff;
 }
+
 .grid-container .five {
   visibility: hidden;
 }
 .grid-container .green {
   background-color: green;
+}
+
+/* GridLights.css - modern, responsive, professional look */
+
+/* page-level */
+.gl-root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+  color: #111827;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.gl-title {
+  margin: 0 0 6px 0;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.gl-sub {
+  margin: 0 0 18px 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+/* container: keep boxes proportional and bounded */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(clamp(80px, 12vw, 160px), 1fr));
+  gap: 18px;
+  justify-items: center;
+  align-items: center;
+
+  /* limit overall size so it doesn't become huge on big screens */
+  max-width: 550px;
+  margin: 0 auto 18px;
+  padding: 8px;
+}
+
+/* one box (square) */
+.seq1 {
+  width: 80%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f3f4f6 0%, #ffffff 100%);
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  box-shadow: 0 4px 10px rgba(2, 6, 23, 0.06);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 220ms ease;
+  display: block;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+/* center cell slightly larger / emphasized (optional) */
+.seq1.five {
+  transform-origin: center;
+  /* make centre cell a touch bigger by letting it span visually */
+  aspect-ratio: 1 / 1;
+}
+
+/* active state */
+.seq1.green {
+  background: linear-gradient(180deg, #16a34a 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 8px 22px rgba(5, 150, 105, 0.18);
+  transform: translateY(-4px) scale(1.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* hover/focus */
+.seq1:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.08);
+}
+
+.seq1:focus {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+  transform: translateY(-3px);
+}
+
+/* controls */
+.gl-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.gl-btn {
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 120ms ease, opacity 120ms;
+}
+
+.gl-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.gl-status {
+  color: #374151;
+}
+
+/* small screens: stack a bit tighter */
+@media (max-width: 420px) {
+  .grid-container {
+    gap: 10px;
+    grid-template-columns: repeat(3, minmax(64px, 1fr));
+  }
 }
