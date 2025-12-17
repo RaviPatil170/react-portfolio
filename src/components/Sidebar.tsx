@@ -1,4 +1,11 @@
-type ExampleId = "todo" | "nested-checkbox" | "file-system" | "grid-light"; // keep in sync with App.tsx or move to a shared types file
+type ExampleId =
+  | "todo"
+  | "nested-checkbox"
+  | "file-system"
+  | "grid-light"
+  | "star-rating"
+  | "tictactoe"
+  | "virtualised-list"; // keep in sync with App.tsx or move to a shared types file
 
 interface ExampleMeta {
   id: ExampleId;
